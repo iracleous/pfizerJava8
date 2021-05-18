@@ -4,6 +4,7 @@ import com.pfizer.datastructures.model.Employee;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class EmployeeRepositoryImpl implements EmployeeRepository {
     private List<Employee> employees;
@@ -23,6 +24,14 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
         Employee employee = employees.get(index);
         return employee;
     }
+
+    @Override
+    public Optional<Employee> getEmployee(int index) {
+
+        Employee employee = employees.get(index);
+        return   Optional.ofNullable(employee);
+    }
+
     public List<Employee> readEmployee(){
         return employees;
     }

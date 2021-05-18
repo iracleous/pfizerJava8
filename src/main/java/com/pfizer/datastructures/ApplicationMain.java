@@ -5,9 +5,11 @@ import com.pfizer.datastructures.repository.EmployeeRepository;
 import com.pfizer.datastructures.repository.EmployeeRepositoryImpl;
 import com.pfizer.datastructures.service.EmployeeService;
 import com.pfizer.datastructures.service.EmployeeServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Date;
 
+@Slf4j
 public class ApplicationMain {
 
     public static void main(String[] args) {
@@ -29,6 +31,6 @@ public class ApplicationMain {
 
         double totalBalance =  employeeService.getSumOfBalances();
 
-        System.out.print("total Balance = "+ totalBalance);
+        log.info("total Balance = "+ totalBalance);
     }
 }
