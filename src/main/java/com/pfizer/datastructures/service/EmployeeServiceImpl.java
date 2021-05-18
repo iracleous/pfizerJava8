@@ -25,16 +25,24 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .readEmployee()
                 .stream()
                 .filter(employee -> employee.getBalance() > 0)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList())
+                ;
     }
 
     @Override
     public List<Employee> sortByName() {
-        employeeRepository
-                .readEmployee()
-                .sort((e1, e2) -> e1.getName().compareTo(e2.getName()));
+
         return employeeRepository
-                .readEmployee();
+                .readEmployee()
+                .stream()
+                .sorted((e1, e2) -> e1.getName().compareTo(e2.getName()))
+                .collect(Collectors.toList())
+                ;
+//        employeeRepository
+//                .readEmployee()
+//                .sort((e1, e2) -> e1.getName().compareTo(e2.getName()));
+//        return employeeRepository
+//                .readEmployee();
 
     }
 
